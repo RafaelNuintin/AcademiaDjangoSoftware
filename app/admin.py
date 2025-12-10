@@ -1,3 +1,15 @@
 from django.contrib import admin
+from .models import *
+from django.contrib import admin
 
-# Register your models here.
+
+admin.site.register(Pessoa)
+admin.site.register(Ocupacao)
+admin.site.register(Temporada)
+admin.site.register(Continente)
+admin.site.register(Pais)
+admin.site.register(Elenco)
+admin.site.register(Filme)
+admin.site.register(Atuacao)
+admin.site.register(Serie)
+admin.site.register(EpisodiosSerie)
