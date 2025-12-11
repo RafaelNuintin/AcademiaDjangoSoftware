@@ -134,7 +134,7 @@ class TipoAvaliacao(models.Model):
         verbose_name = "TipoAvaliação"
         verbose_name_plural = "TiposAvaliações"
 
-class frequencia(models.Model):
+class Frequencia(models.Model):
     curso = models.ForeignKey(Curso, on_delete = models.CASCADE, verbose_name = "Curso")
     disciplina = models.ForeignKey(Disciplina, on_delete = models.CASCADE, verbose_name = "Disciplina")
     pessoa = models.ForeignKey(Pessoa, on_delete = models.CASCADE, verbose_name = "Pessoa")

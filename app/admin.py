@@ -1,15 +1,26 @@
 from django.contrib import admin
 from .models import *
-from django.contrib import admin
 
+admin.site.register(Instituicao)
+admin.site.register(Area_Saber)
+admin.site.register(Curso)
+admin.site.register(Periodo)
+admin.site.register(Disciplina)
+admin.site.register(Matricula)
+admin.site.register(Avaliacao)
+admin.site.register(Frequencia)
+admin.site.register(Turma)
+admin.site.register(Cidade)
+admin.site.register(Ocorrencia)
+
+class PessoaInline(admin.TabularInline):
+    model = Pessoa
+    extra = 1
+
+class OcupacaoAdmin(admin.ModelAdmin):
+    list_display = ('nome',)
+    search_fields = ('nome',)
+    inlines = [PessoaInline]
 
 admin.site.register(Pessoa)
-admin.site.register(Ocupacao)
-admin.site.register(Temporada)
-admin.site.register(Continente)
-admin.site.register(Pais)
-admin.site.register(Elenco)
-admin.site.register(Filme)
-admin.site.register(Atuacao)
-admin.site.register(Serie)
-admin.site.register(EpisodiosSerie)
+admin.site.register(Ocupacao, OcupacaoAdmin)

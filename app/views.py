@@ -7,5 +7,10 @@ class IndexView(View):
     def get(self, request, *args, **kwargs):
         cursos = Curso.objects.all()
         return render(request, 'index.html', {'cursos': cursos,})
+    
+class PessoasView(View):
+    def get(self, request, *args, **kwargs):
+        pessoas = Pessoa.objects.all()
+        return render(request, 'pessoas.html', {'pessoas': pessoas,})
 
 # Create your views here.
