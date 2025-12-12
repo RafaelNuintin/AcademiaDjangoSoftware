@@ -21,6 +21,14 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name='index'),
-    path('pessoas/', PessoasView.as_view(), name='pessoas')
+    path('filmes/', FilmesView.as_view(), name='filmes'),
+path('series/', SeriesView.as_view(), name='series'),
+path('episodios/', EpisodiosView.as_view(), name='episodios'),
+path('generos/', GenerosView.as_view(), name='generos'),
+path('temporadas/', TemporadasView.as_view(), name='temporadas'),
+path('elencos/', ElencoView.as_view(), name='elencos'),
+path('atuacoes/', AtuacaoView.as_view(), name='atuacoes'),
+path('delete/<int:id>/', DeleteFilmeView.as_view(), name='delete'),
+path('editar/<int:id>/', EditarFilmeView.as_view(), name='editar'),
+path('', IndexView.as_view(), name='index'),
 ]
