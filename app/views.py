@@ -12,5 +12,10 @@ class PessoasView(View):
     def get(self, request, *args, **kwargs):
         pessoas = Pessoa.objects.all()
         return render(request, 'pessoas.html', {'pessoas': pessoas,})
+    
+class CursosView(View):
+    def get(self, request, *args, **kwargs):
+        cursos = Curso.objects.all()
+        return render(request, 'cursos.html', {'cursos': cursos,})
 
 # Create your views here.

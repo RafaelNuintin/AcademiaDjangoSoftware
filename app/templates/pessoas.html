@@ -62,28 +62,26 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css
 <thead>
 <tr>
 <th scope="col">Nome</th>
-<th scope="col">Duracao</th>
-<th scope="col">Sinopse</th>
-<th scope="col">Site Oficial</th>
-<th scope="col">Data de Lançamento</th>
-<th scope="col">Nota de Avaliação</th>
-<th scope="col">Gênero</th>
-<th scope="col">País</th>
-<th scope="col">Diretor</th>
+<th scope="col">Nome do Pai</th>
+<th scope="col">Nome da Mãe</th>
+<th scope="col">CPF</th>
+<th scope="col">Data de Nascimento</th>
+<th scope="col">E-mail</th>
+<th scope="col">Cidade</th>
+<th scope="col">Ocupação</th>
 </tr>
 </thead>
 <tbody>
-{% for filmes in filmes %}
+{% for pessoas in pessoas %}
 <tr>
-<td>{{ filmes.nome }}</td>
-<td>{{ filmes.duracao }}</td>
-<td>{{ filmes.sinopse }}</td>
-<td>{{ filmes.site_oficial }} </td>
-<td>{{ filmes.data_lancamento }}</td>
-<td>{{ filmes.nota_avaliacao }}</td>
-<td>{{ filmes.genero }}</td>
-<td>{{ filmes.pais }}</td>
-<td>{{ filmes.diretor }}</td>
+<td>{{ pessoas.nome }}</td>
+<td>{{ pessoas.nome_do_pai }}</td>
+<td>{{ pessoas.nome_da_mae }}</td>
+<td>{{ pessoas.cpf }} </td>
+<td>{{ pessoas.data_nasc }}</td>
+<td>{{ pessoas.email }}</td>
+<td>{{ pessoas.cidade }}</td>
+<td>{{ pessoas.ocupacao }}</td>
 </tr>
 {% endfor %}
 </tbody>

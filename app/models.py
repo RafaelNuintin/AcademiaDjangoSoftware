@@ -100,6 +100,7 @@ class Aluno(models.Model):
     cidade = models.ForeignKey(Cidade, on_delete = models.CASCADE, verbose_name = "Cidade")
     ocupacao = models.ForeignKey(Ocupacao, on_delete = models.CASCADE, verbose_name = "Ocupação")
     turma = models.ForeignKey(Turma, on_delete = models.CASCADE, verbose_name = "Turma")
+    pessoa = models.ForeignKey(Pessoa, on_delete = models.CASCADE, verbose_name = "Pessoa")
 
     def __str__(self):
         return f"{self.nome}, {self.cpf}"
