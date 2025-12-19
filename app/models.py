@@ -27,7 +27,7 @@ class Periodo(models.Model):
     periodo = models.IntegerField(verbose_name = "Período de Curso")
 
     def __str__(self):
-        return self.periodo
+        return str(self.periodo)
     
     class Meta:
         verbose_name = "Período"
@@ -91,19 +91,11 @@ class Pessoa(models.Model):
         verbose_name_plural = "Pessoas"
 
 class Aluno(models.Model):
-    nome = models.CharField(max_length = 100, verbose_name = "Nome do aluno")
-    nome_do_pai = models.CharField(max_length = 100, verbose_name = "Nome do pai")
-    nome_da_mae = models.CharField(max_length = 100, verbose_name = "Nome da mãe")
-    cpf = models.CharField(max_length = 20, verbose_name = "cpf")
-    data_nasc = models.DateField(verbose_name = "Data de nascimento")
-    email = models.CharField(max_length = 100, verbose_name = "Email")
-    cidade = models.ForeignKey(Cidade, on_delete = models.CASCADE, verbose_name = "Cidade")
-    ocupacao = models.ForeignKey(Ocupacao, on_delete = models.CASCADE, verbose_name = "Ocupação")
     turma = models.ForeignKey(Turma, on_delete = models.CASCADE, verbose_name = "Turma")
     pessoa = models.ForeignKey(Pessoa, on_delete = models.CASCADE, verbose_name = "Pessoa")
 
     def __str__(self):
-        return f"{self.nome}, {self.cpf}"
+        return f"{self.pessoa.nome}, {self.turma}"
     
     class Meta:
         verbose_name = "Aluno"
@@ -151,12 +143,12 @@ class Disciplina(models.Model):
 class Matricula(models.Model):
     instituicao = models.ForeignKey(Instituicao, on_delete = models.CASCADE, verbose_name = "Instituição")
     curso = models.ForeignKey(Curso, on_delete = models.CASCADE, verbose_name = "Curso")
-    pessoa = models.ForeignKey(Pessoa, on_delete = models.CASCADE, verbose_name = "Pessoa")
+    aluno = models.ForeignKey(Aluno, on_delete = models.CASCADE, verbose_name = "Aluno")
     data_inicio = models.DateField(verbose_name = "Data de Início")
     data_previsao_termino = models.DateField(verbose_name = "Data de Previsão de Término")
 
     def __str__(self):
-        return f"{self.curso}, {self.instituicao}, {self.pessoa}"
+        return f"{self.curso}, {self.instituicao}, {self.aluno}"
     
     class Meta:
         verbose_name = "Matrícula"
